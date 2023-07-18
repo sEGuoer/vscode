@@ -1,0 +1,59 @@
+body{
+    margin: 30px;
+    max-width: 700px;
+}
+.full-name{
+    font-size: 70px;
+    text-transform: uppercase;
+    margin-left: 5px;
+}
+.first-name{
+    font-weight: 700;
+}
+.last-name{
+    font-weight: 300;
+}
+.contact-info{
+    font-size: 20px;}
+.contact-info .email , .phone{
+    color: #999;
+}
+.position{
+    text-decoration: underline;
+    font-weight: bold;
+}
+.about{
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 40px;
+}
+.section__title{
+    color: #54AFE4;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.left , .right{
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+    line-height: 30px;
+}
+
+.left{
+    font-size: 20px;
+    text-align: left;
+}
+.right{
+    text-align: right;
+    font-size: 20px;
+}
+.name{
+    font-weight: bold;
+}
+.section__list-item ,.skills__item .left .name{
+    margin-bottom: 20px;
+    line-height: 26px;
+}
