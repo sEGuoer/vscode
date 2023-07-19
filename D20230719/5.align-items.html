@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+</head>
+<style>
+    #item:nth-child(1),#item:nth-child(3){
+        height: 800px;
+    }
+#contentor{
+    border: 1px ;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: center;
+    /* align-items: start; 顶部对齐*/
+    /* align-items: end;底部对齐 */
+    /* align-items: center;中点对齐 */
+    align-items: stretch;
+    /* 自动填充满 */
+}
+#item{
+    margin: 20px;
+    width:50%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+
+<body>
+    <div id="contentor">
+        <div id="item">1</div>
+        <div id="item">2</div>
+        <div id="item">3</div>
+        <div id="item">4</div>
+        <div id="item">5</div>
+        <div id="item">6</div>
+    </div>
+</body>
