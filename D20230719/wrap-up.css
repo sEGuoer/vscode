@@ -41,10 +41,9 @@ align-items:flex-end;
     font-size: 26px;
 }
 
-#left,#right{
-    display: inline-block;
-    width: 49%;
-    vertical-align: top;
-    line-height: 30px;
+#content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
