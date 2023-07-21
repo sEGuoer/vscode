@@ -64,8 +64,6 @@ body {
 
 .left,
 .right {
-    display: inline-block;
-    width: 49%;
     vertical-align: top;
     line-height: 30px;
 }
@@ -85,7 +83,10 @@ body {
 }
 
 .section__list-item,
-.skills__item .left .name {
+.skills__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-bottom: 20px;
     line-height: 26px;
 }
