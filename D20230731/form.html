@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form</title>
+    <link rel="stylesheet" href="../D20230726/vite/build/assets/app.css">
+</head>
+<body>
+<div class="container">
+    <form class="p-5" name="form1">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">account</label>
+            <input type="text" class="form-control" id="exampleInputEmail1">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <span class="me-2">年龄</span><input type="radio" value="1" name="age" id="age1" class="form-check-input" ><label for="age1" class="ms-1">一岁</label>
+            <input type="radio" value="0" name="age" id="age2" class="form-check-input"><label for="age2" class="ms-1">两岁</label>
+        </div>
+        <div class="mb-3">
+            <span class="me-2">爱好</span><input type="checkbox" name="hobby" class="form-check-input"><span class="ms-1">唱跳</span>
+            <input type="checkbox" name="hobby" class="form-check-input"><span class="ms-1">rap</span>
+            <input type="checkbox" name="hobby" class="form-check-input"><span class="ms-1">篮球</span>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected name="moren">Where are you from</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <h2 class="text-info" id="output"></h2>
+        <button type="button" id="shangchuan" class="btn-primary" onclick="testPrompt1()">提交</button>
+        <button type="reset" class="btn-primary" onclick="MyReset()" >重置</button>
+    </form>
+</div>
+<script type="text/javascript">
+    function testPrompt1() {
+        var account = document.getElementById("exampleInputEmail1").value
+        var password = document.getElementById("exampleInputPassword1").value
+        var age = document.querySelector('input[name="age"]:checked')
+        var hobby = document.querySelector('input[name="hobby"]:checked')
+        var moren = document.querySelector('option[name="moren"]:checked')
+        var shangchuan =document.getElementById("shangchuan")
+        if (account == "") {
+            document.getElementById("output").innerHTML = "请勿输入空的用户名"
+            return
+        }
+        else if (account !="" && (account.length < 6 || account.length > 12)){
+            document.getElementById("output").innerHTML = "请输入6-12的用户名"
+            return
+        }
+        else if (account !="" & (account.length > 5 && account.length < 13) && password == "") {
+            document.getElementById("output").innerHTML = "请勿输入空的密码"
+            return
+
+        }
+        else if (account !="" & (account.length > 5 && account.length < 13) & password !="" && (password.length < 6 || password.length > 12)){
+            document.getElementById("output").innerHTML = "请输入6-12位的密码"
+            return
+        }else {
+            console.log(account, password,age,hobby,shangchuan)
+        }
+            if (age == null) {
+                document.getElementById("output").innerHTML = "请选择一个年龄"
+                return
+            }else{
+                if (age.value == 1) {
+                    document.getElementById("output").innerHTML = "该年龄段不允许注册"
+                    return;
+                }else{
+                    if (hobby == null){
+                        document.getElementById("output").innerHTML = "请至少选择一个爱好"
+                        return
+                    }else{
+                        if (moren !== null){
+                            document.getElementById("output").innerHTML = "选择一个省份"
+                            return
+                        }else {
+                            shangchuan.type = "submit"
+                            console.log(shangchuan)
+                        }
+                    }
+                }
+            }
+    }
+    function MyReset() {
+        document.getElementById("output").innerHTML = ""
+    }
+</script>
+</body>
+</html>

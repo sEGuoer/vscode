@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input1" onkeydown="testPrompt1()" onkeyup="testPrompt2()"> 输入框 </input>
+<h2 id="output"></h2>
+</body>
+<script>
+    function testPrompt1() {
+        document.getElementById("output").innerHTML = "正在输入"
+    }
+    function testPrompt2() {
+       setInterval(function () {
+           setInterval(document.getElementById("output").innerHTML = "")
+       },3000)
+    }
+
+
+
+
+</script>
+</html>
