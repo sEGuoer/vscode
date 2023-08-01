@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Reading time",
+  "description": "Add reading time",
+  "version": "0.0.01",
+  "icons": {
+    "16": "images/reading-time16.png",
+    "32": "images/reading-time32.png",
+    "64": "images/reading-time64.png",
+    "128": "images/reading-time128.png"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/content.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
