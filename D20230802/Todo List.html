@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-info d-flex flex-column align-items-center">
+<div class="container w-50 mt-5 d-flex flex-column align-items-center bg-body-tertiary" id="user_add">
+    <div>
+        <input id="user_input" type="text" onkeyup="enterToAdd()">
+        <button type="button" class="btn btn-primary" onclick="addnew()" id="add">ADD</button>
+    </div>
+</div>
+<script>
+    function enterToAdd(){
+        var input =document.getElementById("user_input")
+        console.log(input)
+        input.addEventListener("keyup",function (e) {
+            e.preventDefault();
+            if (e.keyCode === 13){
+                document.getElementById("add").click();
+            }
+        })
+    }
+
+    /*
+
+              $("#user_input").bind('keyup',function (event) {
+    if (event.keyCode === 13){
+        console.log(1)
+        $("#add").click();
+    }
+          })
+
+          $("#deletebutton").on("click",function () {
+              console.log(1)
+              $(this).parent().remove();
+          })*/
+    function deletebutton() {
+        console.log(event.target)
+        console.log(event.target.parentNode)
+        event.target.parentNode.remove()
+
+    }
+
+    function addnew() {
+        const element = document.getElementById("user_add")
+        var user_input = document.getElementById("user_input").value
+        console.log(user_input)
+        if (user_input !== "") {
+            element.innerHTML += "<div><span>" + user_input + "</span><button type=\"button\" class=\"btn btn-primary ms-3\" id=\"deletebutton\" onclick=\"deletebutton()\" >delete</button></div>"
+        }
+
+        // var child = document.createElement("div");
+        // var deletebutton = document.createElement("button");
+        // deletebutton.class= "btn btn-primary"
+        // deletebutton.onclick= "delet()"
+        // var i = "0"
+        // child.id = "a"+i;
+        // var user_input = document.getElementById("user_input");
+        // console.log(user_input.value,deletebutton)
+        // var para = document.createTextNode(user_input.value);
+        // console.log(para)
+        // child.appendChild(para)
+        // child.appendChild(deletebutton)
+        // console.log(child)
+        // element.appendChild(child)
+    }
+
+</script>
+</body>
+</html>

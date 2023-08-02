@@ -11,3 +11,8 @@ if (element !== null){
     element.appendChild(para);
 }
 
+// $("[class^='minh'] iframe").hide()
+document.querySelectorAll("[class^='minh'] iframe").forEach(function (element) {
+    console.log(element)
+    element.style.display = "none"
+})

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List_jQuery</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-info d-flex flex-column align-items-center">
+<div class="container w-50 mt-5 d-flex flex-column align-items-center bg-body-tertiary" id="user_add">
+    <div>
+        <input id="user_input" type="text">
+        <button type="button" class="btn btn-primary" id="add">ADD</button>
+    </div>
+</div>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+
+
+    $("#add").click(function () {
+        console.log($(this),$("#user_input").prop("value"))
+        $(this).parent().append("<div><span>"+ $("#user_input").prop("value") +"</span><button type=\"button\" class=\"btn btn-primary ms-3\" id=\"deletebutton\">delete</button></div>")
+        $("#deletebutton").click(function () {
+            console.log(1)
+            $(this).parent().remove();
+        })
+    })
+
+    $("#user_input").bind('keyup', function (event) {
+        if (event.keyCode === 13) {
+            console.log(1)
+            $("#add").click();
+        }
+    })
+
+ /*   function addnew() {
+        const element = document.getElementById("user_add")
+        var user_input = document.getElementById("user_input").value
+        console.log(user_input)
+        if (user_input !== "") {
+            element.innerHTML += "<div><span>" + user_input + "</span><button type=\"button\" class=\"btn btn-primary ms-3\" id=\"deletebutton\" onclick=\"deletebutton()\" >delete</button></div>"
+        }
+
+    }*/
+
+</script>
+</body>
+</html>
