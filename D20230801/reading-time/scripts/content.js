@@ -12,7 +12,7 @@ if (element !== null){
 }
 
 // $("[class^='minh'] iframe").hide()
-document.querySelectorAll("[class^='minh'] iframe").forEach(function (element) {
+ document.querySelectorAll("[class^='minh']").forEach(function (element) {
     console.log(element)
-    element.style.display = "none"
+    element.parentElement.parentElement.parentElement.firstElementChild.lastElementChild.click()
 })

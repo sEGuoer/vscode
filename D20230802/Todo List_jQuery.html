@@ -7,31 +7,42 @@
 </head>
 <body class="bg-info d-flex flex-column align-items-center">
 <div class="container w-50 mt-5 d-flex flex-column align-items-center bg-body-tertiary" id="user_add">
-    <div>
+    <div id="haha">
         <input id="user_input" type="text">
         <button type="button" class="btn btn-primary" id="add">ADD</button>
     </div>
 </div>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script>
+    let taskInput = $("#user_input")
 
 
     $("#add").click(function () {
-        console.log($(this),$("#user_input").prop("value"))
-        $(this).parent().append("<div><span>"+ $("#user_input").prop("value") +"</span><button type=\"button\" class=\"btn btn-primary ms-3\" id=\"deletebutton\">delete</button></div>")
-        $("#deletebutton").click(function () {
-            console.log(1)
-            $(this).parent().remove();
-        })
+       insertTask();
     })
 
-    $("#user_input").bind('keyup', function (event) {
-        if (event.keyCode === 13) {
+    taskInput.bind('keyup', function (event) {
+        if (event.key === "Enter") {
             console.log(1)
-            $("#add").click();
+            insertTask();
         }
     })
-
+    function insertTask() {
+        console.log("haha",taskInput.prop("value"))
+        if (taskInput.prop("value") === '') {
+            alert("Please Enter a Task");
+        }else {
+            console.log(taskInput.prop("value"))
+            taskInput.parent().append("<div><span>"+ taskInput.prop("value") +"</span><button type=\"button\" class=\"btn btn-primary ms-3\" id=\"deletebutton\">delete</button></div>");
+            /*$("#deletebutton").each(function () {
+            })*/
+            document.querySelectorAll("#deletebutton").forEach(function (btnElement) {
+                btnElement.onclick = function () {
+                    this.parentNode.remove();
+                }
+            })
+        }
+    }
  /*   function addnew() {
         const element = document.getElementById("user_add")
         var user_input = document.getElementById("user_input").value
