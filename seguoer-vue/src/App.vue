@@ -11,11 +11,14 @@ const count = ref(0)
 function increment() {
   count.value++
 }
+const text = ref('')
 </script>
 
 <template>
   <h1 class="title">{{ message }}</h1>
-  <button class="count-title" @click="increment">count is: {{ count }}</button>
+  <div><button class="count-title" @click="increment">count is: {{ count }}</button></div>
+  <input v-model="text" placeholder="Type here">
+  <p>{{ text }}</p>
 </template>
 
 <style>
