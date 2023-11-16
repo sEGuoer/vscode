@@ -6,12 +6,16 @@ const message = ref('Hello World!')
 
 const titleClass = ref('title')
 const contentTitleClass = ref('content-title')
+const count = ref(0)
 
+function increment() {
+  count.value++
+}
 </script>
 
 <template>
   <h1 class="title">{{ message }}</h1>
-  <p class="count-title">Count is: {{ counter.count }}</p>
+  <button class="count-title" @click="increment">count is: {{ count }}</button>
 </template>
 
 <style>
