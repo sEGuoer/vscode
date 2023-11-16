@@ -1,9 +1,11 @@
 <script setup>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 
-const message = ref('Hello Vue!')
+const counter = reactive({ count: 0 })
+const message = ref('Hello World!')
 </script>
 
 <template>
   <h1>{{ message }}</h1>
+  <p>Count is: {{ counter.count }}</p>
 </template>
