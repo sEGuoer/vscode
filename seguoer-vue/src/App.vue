@@ -1,23 +1,25 @@
 <script setup>
-import JSConfetti from 'js-confetti'
+import { ref, watch } from 'vue'
 
-const confetti = new JSConfetti()
+const todoId = ref(1)
+const todoData = ref(null)
 
-function showConfetti() {
-  confetti.addConfetti()
+async function fetchData() {
+  todoData.value = null
+  const res = await fetch(
+      `http://localhost:8080/blogs/vue/${todoId.value}`
+  )
+  todoData.value = await res.json()
 }
 
-showConfetti()
+fetchData()
+
+watch(todoId, fetchData)
 </script>
 
 <template>
-  <h1 @click="showConfetti">🎉 Congratulations!</h1>
+  <p>Todo id: {{ todoId }}</p>
+  <button @click="todoId++">Fetch next todo</button>
+  <p v-if="!todoData">Loading...</p>
+  <pre v-else>{{ todoData }}</pre>
 </template>
-
-<style>
-h1 {
-  text-align: center;
-  cursor: pointer;
-  margin-top: 3em;
-}
-</style>
